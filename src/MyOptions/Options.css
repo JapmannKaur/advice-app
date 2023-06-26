@@ -1,0 +1,136 @@
+body {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  perspective: 1000px;
+  overflow-x: hidden;
+  background: linear-gradient(to left, #006400, #98FB98);
+  background-image: url("https://images.pexels.com/photos/172505/pexels-photo-172505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  overflow: hidden;
+}
+
+.parent-page {
+  background-color: transparent;
+  /* border: 1px solid red; */
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 2vh;
+  column-gap: 2.5vw;
+  padding: 3vh;
+  margin-left: 8vw;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+
+.parent-page:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://images.pexels.com/photos/172505/pexels-photo-172505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+  transform-origin: center;
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+  animation: parallaxAnimation 20s infinite alternate linear;
+}
+
+@keyframes parallaxAnimation {
+  0% {
+    transform: translateZ(-1px) scale(2);
+  }
+  100% {
+    transform: translateZ(-1px) scale(1.5);
+  }
+}
+
+.myAdv {
+  border: 1px solid black;
+  background: #ecf1edc4;
+  color: darkgreen;
+  height: 60%;
+  min-height: 22vh;
+  width: 34.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2vh;
+  padding: 0 0.5vw;
+  border-radius: 10px;
+}
+
+.kuch {
+  display: flex;
+  height: 22vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 2vh;
+  background: transparent;
+  width: 100%;
+}
+
+button {
+  border-radius: 20px;
+  border: none;
+  background: #97c95f;
+  box-sizing: border-box;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  padding: 1vh;
+}
+
+form {
+  background: transparent;
+}
+
+input {
+  background: #c9f8d2;
+  border: none;
+  padding: 0.5vw;
+  border-bottom: 1px solid black;
+}
+
+p {
+  background: transparent;
+}
+
+.flagz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 3vw;
+}
+
+/* Grayscale effect */
+body {
+  filter: grayscale(50%);
+  transition: filter 0.3s ease;
+}
+
+body:hover {
+  filter: grayscale(0%);
+}
+
+/* Blurred background effect */
+/*
+body {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+body:hover {
+  filter: blur(0);
+}
+*/

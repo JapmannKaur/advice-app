@@ -1,11 +1,12 @@
 import React from 'react'
 import './App.css'
-import Advice from './Advice'
+import Options from './MyOptions/Options'
 
 const App = () => {
   return (
     <div>
-      <Advice/>
+      <h2>Random Request-Based Generator</h2>
+      <Options/>
     </div>
   )
 }
