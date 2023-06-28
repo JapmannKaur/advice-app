@@ -31,8 +31,7 @@ const Joke = () => {
           <p>Searching...</p> // Display a loading message while waiting
         ) : (
           <>
-            {joke2}
-            {joke}
+            {joke2}  {joke}
           </>
         )}
         <button onClick={newAdv}>Make me laugh</button>
