@@ -1,54 +1,55 @@
-import axios from 'axios'
-import React, { useState, useEffect } from 'react'
-import './Options.css'
-
-const url = "https://restcountries.com/v3.1/all?fields=name,flags"
+import axios from 'axios';
+import React, { useState } from 'react';
+import './Options.css';
 
 const Flag = () => {
-    const [fact, setFact] = useState(null)
-    const [loading, setLoading] = useState(false)
+    const [country, setCountry] = useState('');
+    const [flag, setFlag] = useState(null);
+    const [loading, setLoading] = useState(false);
 
-    const getFact = async () => {
-        setLoading(true)
+    const getFlag = async () => {
+        setLoading(true);
         try {
-            const response = await axios.get(url)
-            const countries = response.data
-            const randomIndex = Math.floor(Math.random() * countries.length)
-            const randomCountry = countries[randomIndex]
-            const fact = {
-                countryName: randomCountry.name.common,
-                flag: randomCountry.flags.png
+            const response = await axios.get(`https://restcountries.com/v3.1/name/${country}`);
+            const countryData = response.data[0];
+            if (countryData) {
+                const { name, flags } = countryData;
+                setFlag({ countryName: name.common, flag: flags.png });
+            } else {
+                setFlag(null);
+                console.log('Country not found');
             }
-            setFact(fact)
         } catch (error) {
-            console.error("Error fetching facts:", error)
+            console.error('Error fetching flag:', error);
         }
-        setLoading(false)
-    }
+        setLoading(false);
+    };
 
-    const handleGetFact = () => {
-        getFact()
-    }
-
-    // useEffect(() => {
-    //     getFact()
-    // }, [])
+    const handleGetFlag = () => {
+        getFlag();
+    };
 
     return (
         <div className='kuch'>
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                fact && (
+                flag && (
                     <div className='flagz'>
-                        <img src={fact.flag} alt="Flag" style={{height:"10vh", width:"10vw"}}/>
-                        <h3>{fact.countryName}</h3>
+                        {/* <h4>{flag.countryName}</h4> */}
+                        <img src={flag.flag} alt='Flag' style={{ height: '6.5vh', width: '6.5vw'}} />
                     </div>
                 )
             )}
-            <button onClick={handleGetFact}>Country Flags</button>
+            <input
+                type='text'
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                placeholder='Enter country name'
+            />
+            <button onClick={handleGetFlag}>Show Flag</button>
         </div>
-    )
-}
+    );
+};
 
-export default Flag
+export default Flag;

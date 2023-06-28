@@ -50,6 +50,7 @@ body {
   0% {
     transform: translateZ(-1px) scale(2);
   }
+
   100% {
     transform: translateZ(-1px) scale(1.5);
   }
@@ -91,6 +92,14 @@ button {
   padding: 1vh;
 }
 
+button:hover {
+  border-radius: 20px;
+  border: none;
+  background: #7EB73E;
+  color: white;
+  cursor: pointer;
+}
+
 form {
   background: transparent;
 }
@@ -108,9 +117,10 @@ p {
 
 .flagz {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 3vw;
+  align-items: flex-end;
+  /* margin-right: -25vw; */
+  justify-content: space-between;
+  column-gap: 20vw;
 }
 
 /* Grayscale effect */

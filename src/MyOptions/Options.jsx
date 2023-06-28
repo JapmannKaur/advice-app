@@ -3,7 +3,7 @@ import Activity from "./Activity"
 import Joke from "./Joke"
 import Nationality from "./Nationality"
 import Flag from "./Flag"
-import Maths from "./Maths"
+import CatFacts from "./CatFacts"
 
 const Options = () => {
   return (
@@ -24,7 +24,7 @@ const Options = () => {
             <Flag/>
         </div>
         <div className="myAdv">
-            <Maths/>
+            <CatFacts/>
         </div>
     </div>
   )
